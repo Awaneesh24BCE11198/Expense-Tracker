@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//Create an expense class having variables and a setter method
 class Expense {
     String description;
     double amount;
@@ -11,12 +12,13 @@ class Expense {
     }
 }
 
+//Create the public class
 public class ExpenseTracker {
-    static ArrayList<Expense> expenses = new ArrayList<>();
-    static Scanner scanner = new Scanner(System.in);
+    static ArrayList<Expense> expenses = new ArrayList<>(); // initialize an array to take data for lists
+    static Scanner scanner = new Scanner(System.in); // use scanner for input
 
     public static void main(String[] args) {
-        while (true) {
+        while (true) {                                  // Run a while loop to print the possible options
             System.out.println("\n--- SIMPLE EXPENSE TRACKER ---");
             System.out.println("1. Add Expense");
             System.out.println("2. View Total");
@@ -24,16 +26,18 @@ public class ExpenseTracker {
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); // Take input from user
 
-            if (choice == 1) addExpense();
-            else if (choice == 2) viewExpenses();
+            // Perform various tasks based on the input
+
+            if (choice == 1) addItems(); 
+            else if (choice == 2) view();
             else if (choice == 3) break;
         }
     }
 
-    // Module 1: Add Data
-    static void addExpense() {
+    // Choice 1 : Add Expenses
+    static void addItems() {
         System.out.print("Enter Description (e.g. Coffee): ");
         String desc = scanner.nextLine();
         System.out.print("Enter Amount: ");
@@ -42,8 +46,8 @@ public class ExpenseTracker {
         System.out.println("Saved!");
     }
 
-    // Module 2: Process Data
-    static void viewExpenses() {
+    // Choice 2: Show expenses
+    static void view() {
         double total = 0;
         System.out.println("\n--- YOUR LIST ---");
         for (Expense e : expenses) {
